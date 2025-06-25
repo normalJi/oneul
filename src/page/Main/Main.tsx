@@ -32,11 +32,13 @@ const Main = () => {
             />
             <button onClick={handleAdd}>추가</button>
 
-            {/* <ul>
+            <ul>
                 {todos.map(todo => (
-                    
+                    <li key="${todo.id}">
+                        ${todo.text}
+                    </li>
                 ))}
-            </ul> */}
+            </ul>
         </div>
     );
 };

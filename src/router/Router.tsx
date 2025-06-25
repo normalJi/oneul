@@ -1,0 +1,17 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Main from "../page/Main/Main";
+import Error404 from "../page/Error/Error404";
+
+const Router = () => {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="main" element={<Main />} />                
+                <Route path="*" element={<Error404 />} />   {/** 업는 주소 처리 */}
+            </Routes>
+        </BrowserRouter>
+    );
+}
+
+export default Router;
