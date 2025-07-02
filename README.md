@@ -1,5 +1,12 @@
 # React + TypeScript + Vite
 
+### 설치 라이브러리
+```
+tailWindCss
+npm install -D tailwindcss postcss autoprefixer
+```
+
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

@@ -1,0 +1,11 @@
+{
+  "semi": true,               // 세미콜론을 항상 추가
+  "singleQuote": true,        // 문자열에 홑따옴표 사용
+  "tabWidth": 2,              // 탭 너비를 2 스페이스로 설정
+  "useTabs": false,           // 탭 대신 스페이스 사용
+  "trailingComma": "es5",     // ES5에서 유효한 곳에만 후행 콤마 추가
+  "printWidth": 80,           // 한 줄에 80자까지 작성
+  "bracketSpacing": true,     // 객체 리터럴에서 중괄호와 속성 사이에 공백 추가
+  "arrowParens": "always",    // 화살표 함수에서 괄호를 항상 사용
+  "endOfLine": "lf"           // 줄바꿈 스타일을 'lf'로 설정
+}

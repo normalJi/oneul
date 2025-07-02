@@ -1,4 +1,4 @@
-import { useState, createContext } from 'react';
+import { useState } from 'react';
 
 export interface Todo {
     id: number;
@@ -17,9 +17,9 @@ const Main = () => {
         setInput('');
     };
 
-    const handleDelete = (id: number) => {
-        setTodos(todos.filter(todo => todo.id !== id));
-    };
+    // const handleDelete = (id: number) => {
+    //     setTodos(todos.filter(todo => todo.id !== id));
+    // };
 
     return (
         <div>
