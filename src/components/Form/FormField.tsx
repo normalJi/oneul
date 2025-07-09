@@ -22,8 +22,7 @@ const FormField = ({
     type = "text",
     onChange,
     options = [],
-    error,
-    required,
+    error,    
     ...rest
 }: FormFieldProps) => {
 

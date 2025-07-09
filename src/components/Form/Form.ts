@@ -23,5 +23,5 @@ export interface CommonFieldProps {
     onChange: (e: FormChangeEvent) => void;
     options?: SelectOptin[];
     error?: string;
-    required: boolean;
+    //required: boolean;
 }
