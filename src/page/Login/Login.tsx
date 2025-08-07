@@ -2,8 +2,8 @@ import { useState } from "react";
 import FormProviderWrapper from "@/components/Form/FormProviderWrapper";
 import FormField from "@/components/Form/FormField";
 import Button from "@/components/Form/Button";
-import type { LoginRequest, LoginResponse } from "@/types";
-import { createHandleChange } from "@/utils/formUtils";
+import type { LoginRequest } from "@/types";
+//import { createHandleChange } from "@/utils/formUtils";
 
 const Login = () => {
 
@@ -16,7 +16,7 @@ const Login = () => {
 
     //const [errors, setErrors] = useState<{[key: string]: string}>({});  // 유효성
 
-    const handleChange = createHandleChange(setFormData);
+    //const handleChange = createHandleChange(setFormData);
 
     // const validate = () => {
     //     const newErrors: { [key:string]:string} = {};
@@ -80,9 +80,9 @@ const Login = () => {
             <h1>로그인 페이지</h1>
             <FormProviderWrapper<LoginRequest> onSubmit={handleSubmit} options={{defaultValues: formData , mode: "onBlur"}}>
             
-                <FormField label="이메일" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="이메일" required />
-                <FormField label="비밀번호" type="password" id="password" name="password" value={formData.password} onChange={handleChange} placeholder="password" required minLength={6} />
-                <FormField label="자동로그인"  type="checkbox" name="remember" checked={formData.remember} onChange={handleChange} required={false} />
+                <FormField label="이메일" id="email" name="email" value={formData.email} placeholder="이메일" required />
+                <FormField label="비밀번호" type="password" id="password" name="password" value={formData.password}  placeholder="password" required minLength={6} />
+                <FormField label="자동로그인"  type="checkbox" name="remember" checked={formData.remember} required={false} />
 
                 {/* <FormField label="이메일" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="이메일" required error={errors.email} /> */}
                 {/* <FormField label="성명" id="userNm" name="userNm" value={formData.userNm} onChange={handleChange} placeholder="성명" required /> */}

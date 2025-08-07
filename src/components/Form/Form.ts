@@ -20,7 +20,7 @@ export interface CommonFieldProps {
     value?: string | boolean;
     checked?: boolean;
     type?: FormFieldType;
-    onChange: (e: FormChangeEvent) => void;
+    onChange?: (e: FormChangeEvent) => void;
     options?: SelectOptin[];
     error?: string;
     required: boolean;
