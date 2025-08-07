@@ -6,6 +6,15 @@ tailWindCss
 npm install -D tailwindcss postcss autoprefixer
 ```
 
+### 실행 방법
+```
+// react + Vite 빌드 
+npm run build 
+
+// 실행
+npm run dev
+```
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

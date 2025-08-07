@@ -24,4 +24,5 @@ export interface CommonFieldProps {
     options?: SelectOptin[];
     error?: string;
     required: boolean;
+    minLength?: number;
 }

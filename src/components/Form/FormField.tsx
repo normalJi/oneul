@@ -1,5 +1,6 @@
 import React from "react";
 import type { CommonFieldProps } from "./Form";
+import { useFormContext } from "react-hook-form";
 
 type InputFieldProps = React.InputHTMLAttributes<HTMLInputElement> & CommonFieldProps;
 type TextareaFieldProps = React.TextareaHTMLAttributes<HTMLTextAreaElement> & CommonFieldProps;
@@ -23,10 +24,12 @@ const FormField = ({
     onChange,
     options = [],
     error,
-    required,
+    required = false,    
+    minLength,
     ...rest
 }: FormFieldProps) => {
 
+    const { register, formState: { errors } } = useFormContext();
     // const isEmpty =
     //     (type === "checkbox" && value === false) ||
     //     (typeof value === "string" && value.trim() === "");
@@ -42,7 +45,7 @@ const FormField = ({
         <div style={{marginBottom: "1rem"}}>
             {label && <label style={{display:"block", marginBottom: "0.25rem"}}>{label}</label>}
             {type === "textarea" ? (
-                <textarea id={id} name={name} value={value} onChange={onChange} {...(rest as React.TextareaHTMLAttributes<HTMLTextAreaElement>)} style={inputStyle}></textarea>
+                <textarea id={id} onChange={onChange} {...(rest as React.TextareaHTMLAttributes<HTMLTextAreaElement>)} style={inputStyle}></textarea>
             ) : type === "select" ? (
                 <select name={name} value={value as string} onChange={onChange} {...(rest as React.SelectHTMLAttributes<HTMLSelectElement>) } style={inputStyle}>
                     <option value="">선택</option>
@@ -63,13 +66,18 @@ const FormField = ({
             ) : type === "checkbox" ? (
                 <input type="checkbox" name={name} checked={value as boolean} onChange={onChange} {...(rest as React.InputHTMLAttributes<HTMLInputElement>)} />
             ) : (
-                <input type={type} id={id} name={name} value={value} onChange={onChange}  {...(rest as React.InputHTMLAttributes<HTMLInputElement>) } style={inputStyle} />
+                <input type={type} id={id} {...(rest as React.InputHTMLAttributes<HTMLInputElement>) } style={inputStyle} 
+                    {...register(name, {required: required ? `${label}은(는) 필수 입니다.`: false,
+                    minLength: minLength ? {value: minLength, message: `${minLength}자 이상 입력해 주세요.`} : undefined,
+                    })}
+                />
             )}
 
             {/* 에러 메시지 */}
-            {error && (
-                <div style={{ color: "red", marginTop: "0.25rem" }}>{error}</div>
-            )}
+            {errors[name] && 
+                // (<div style={{ color: "red", marginTop: "0.25rem" }}></div>)
+                <span>{(errors[name] as any)?.message}</span>
+            }
         </div>
     );
 }

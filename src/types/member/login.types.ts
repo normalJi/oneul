@@ -8,6 +8,7 @@ export interface LoginRequest {
 }
 
 export interface LoginResponse {
+    code: number;
     email: string;
     userNm: string;    
     remember: boolean;    
